@@ -1,0 +1,89 @@
+input_root: /eos/cms/store/group/phys_tau/kandroso/Run3_HLT/prod_v1_spectrum/L1Tau
+n_batches: 10
+tree_name: Events
+batch_size: 500
+
+hist_names:
+  - pt_eta_e
+  - pt_eta_mu
+  - pt_eta_tau
+  - pt_eta_jet
+
+inputs:
+  Zprime:
+    - ZprimeToEE_M-6000
+    - ZprimeToTauTau_M-4000
+
+
+bin_edges:
+  pt: [ 20., 25., 30., 40., 60., 80., 100., 200., 500., 1000. ]
+  eta: [ 0, 0.7, 1.4, 2.1 ]
+
+bin_selection: "
+  L1Tau_gen_pt >= {pt_low} && L1Tau_gen_pt < {pt_high}
+  && L1Tau_gen_abs_eta >= {eta_low} && L1Tau_gen_abs_eta < {eta_high}
+"
+
+event_sel: (event % 4) > 0
+
+bins:
+  - input_setups: [ Higgs, Zprime ]
+    tau_type: tau
+    eta_bin: 0
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ Higgs, Zprime ]
+    tau_type: tau
+    eta_bin: 1
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ Higgs, Zprime ]
+    tau_type: tau
+    eta_bin: 2
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ DY ]
+    tau_type: jet
+    eta_bin: 0
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ DY ]
+    tau_type: jet
+    eta_bin: 1
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ DY ]
+    tau_type: jet
+    eta_bin: 2
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ TT ]
+    tau_type: jet
+    eta_bin: 0
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ TT ]
+    tau_type: jet
+    eta_bin: 1
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ TT ]
+    tau_type: jet
+    eta_bin: 2
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ QCD ]
+    tau_type: jet
+    eta_bin: 0
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ QCD ]
+    tau_type: jet
+    eta_bin: 1
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ QCD ]
+    tau_type: jet
+    eta_bin: 2
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ DY, TT, Zprime ]
+    tau_type: e
+    eta_bin: 0
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ DY, TT, Zprime ]
+    tau_type: e
+    eta_bin: 1
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
+  - input_setups: [ DY, TT, Zprime ]
+    tau_type: e
+    eta_bin: 2
+    counts: [ 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
