@@ -93,14 +93,14 @@ def make_mix(cfg_file, output, n_jobs, job_id):
     df_in = df_in.Define(f'L1Tau_luminosityBlock', 'RVecI(L1Tau_pt.size(), static_cast<int>(luminosityBlock))')
     df_in = df_in.Define(f'L1Tau_run', 'RVecI(L1Tau_pt.size(), static_cast<int>(run))')
     df_in = df_in.Define(f'L1Tau_nJet', 'RVecI(L1Tau_pt.size(), static_cast<int>(nJet))')
-    other_columns = { 'nPV', 'event', 'luminosityBlock', 'run', 'nJet','PFCand_pdgID',
-                      'PFCand_EcalEnergy','PFCand_HcalEnergy','PFCand_charge','PFCand_eta',
-                      'PFCand_mass','PFCand_phi','PFCand_pt','PFCand_rawEcalEnergy','PFCand_rawHcalEnergy',
-                      'PFCand_trackChi2','PFCand_trackDxy','PFCand_trackDxyError','PFCand_trackDz','PFCand_trackDzError',
-                      'PFCand_trackEta','PFCand_trackEtaError','PFCand_trackHitsValidFraction',
-                      'PFCand_trackNdof','PFCand_trackNumberOfLostHits','PFCand_trackNumberOfValidHits',
-                      'PFCand_trackPhi','PFCand_trackPhiError','PFCand_trackPt','PFCand_trackPtError',
-                      'PFCand_vx','PFCand_vy','PFCand_vz'} #,'PF_pdgID'
+    other_columns = { 'nPV', 'event', 'luminosityBlock', 'run', 'nJet','PFCand_charge','PFCand_pdgID',
+                      'PFCand_EcalEnergy'}#,'PFCand_HcalEnergy','PFCand_eta','PFCand_EcalEnergy'
+                      # 'PFCand_mass','PFCand_phi','PFCand_pt','PFCand_rawEcalEnergy','PFCand_rawHcalEnergy',
+                      # 'PFCand_trackChi2','PFCand_trackDxy','PFCand_trackDxyError','PFCand_trackDz','PFCand_trackDzError',
+                      # 'PFCand_trackEta','PFCand_trackEtaError','PFCand_trackHitsValidFraction',
+                      # 'PFCand_trackNdof','PFCand_trackNumberOfLostHits','PFCand_trackNumberOfValidHits',
+                      # 'PFCand_trackPhi','PFCand_trackPhiError','PFCand_trackPt','PFCand_trackPtError',
+                      # 'PFCand_vx','PFCand_vy','PFCand_vz'} #,'PF_pdgID'
     # other_columns = { 'nPV', 'event', 'luminosityBlock', 'run', 'nJet','PFCandUniqueIdx','PFCand_pdgID',
     #                   'PFCand_charge','PFCand_longLived'} #,'PF_pdgID''PFCand_trackIsValid','PFCand_longLived'
     l1tau_columns.extend(other_columns)

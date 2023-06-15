@@ -57,44 +57,30 @@ inline RVecI GetGenPartonFlavour(const RVecI& tauType, const RVecI& genJetUnique
   return gen_pf;
 }
 
-inline RVecI GetPFCandInt(const RVecI& L1Tau_PFCandUniqueIdx,
-                            const ROOT::VecOps::RVec<int>& PFCand_Int)
+inline ROOT::VecOps::RVec<ROOT::VecOps::RVec<int>> GetPFCandInt(const RVecVecI& L1Tau_target_idx,
+                            const ROOT::VecOps::RVec<int>& PFCand_Var)
 {
-  RVecI PFCandInt;
-  // std::cout << PFCand_pdgId << std::endl;
-  //std::cout << L1Tau_PFCandUniqueIdx << std::endl;
-  for(size_t tau_idx = 0; tau_idx < L1Tau_PFCandUniqueIdx.size(); ++tau_idx)
+  ROOT::VecOps::RVec<ROOT::VecOps::RVec<int>> PFCandInt(L1Tau_target_idx.size());
+  for(size_t tau_idx = 0; tau_idx < L1Tau_target_idx.size(); ++tau_idx)
   {
-    const int PFCand_idx = L1Tau_PFCandUniqueIdx[tau_idx];
-    // std::cout << tau_idx << std::endl;
-    PFCandInt.push_back(PFCand_Int[PFCand_idx]);
+    for(size_t PFCand_idx = 0; PFCand_idx < L1Tau_target_idx[tau_idx].size(); ++PFCand_idx){
+      PFCandInt[tau_idx].push_back(PFCand_Var[L1Tau_target_idx[tau_idx][PFCand_idx]]);
+    }
   }
-  // std::cout << PFCandpgdId << std::endl;
   return PFCandInt;
 }
 
-inline RVecF GetPFCandFloat(const RVecI& L1Tau_PFCandUniqueIdx,
-                            const ROOT::VecOps::RVec<float>& PFCand_Float)
+inline ROOT::VecOps::RVec<ROOT::VecOps::RVec<float>> GetPFCandFloat(const RVecVecI& L1Tau_target_idx,
+                            const ROOT::VecOps::RVec<float>& PFCand_Var)
 {
-  RVecF PFCandFloat;
-  for(size_t tau_idx = 0; tau_idx < L1Tau_PFCandUniqueIdx.size(); ++tau_idx)
+  ROOT::VecOps::RVec<ROOT::VecOps::RVec<float>> PFCandFloat(L1Tau_target_idx.size());
+  for(size_t tau_idx = 0; tau_idx < L1Tau_target_idx.size(); ++tau_idx)
   {
-    const int PFCand_idx = L1Tau_PFCandUniqueIdx[tau_idx];
-    PFCandFloat.push_back(PFCand_Float[PFCand_idx]);
+    for(size_t PFCand_idx = 0; PFCand_idx < L1Tau_target_idx[tau_idx].size(); ++PFCand_idx){
+      PFCandFloat[tau_idx].push_back(PFCand_Var[L1Tau_target_idx[tau_idx][PFCand_idx]]);
+    }
   }
   return PFCandFloat;
-}
-
-inline RVecB GetPFCandBool(const RVecI& L1Tau_PFCandUniqueIdx,
-                            const ROOT::VecOps::RVec<bool>& PFCand_Bool)
-{
-  RVecB PFCandBool;
-  for(size_t tau_idx = 0; tau_idx < L1Tau_PFCandUniqueIdx.size(); ++tau_idx)
-  {
-    const int PFCand_idx = L1Tau_PFCandUniqueIdx[tau_idx];
-    PFCandBool.push_back(PFCand_Bool[PFCand_idx]);
-  }
-  return PFCandBool;
 }
 
 inline RVecI GetTauTypes(const ROOT::VecOps::RVec<reco_tau::gen_truth::GenLepton>& genLeptons,

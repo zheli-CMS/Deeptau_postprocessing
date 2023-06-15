@@ -11,7 +11,7 @@ using RVecS = ROOT::VecOps::RVec<size_t>;
 using RVecUC = ROOT::VecOps::RVec<UChar_t>;
 using RVecF = ROOT::VecOps::RVec<float>;
 using RVecB = ROOT::VecOps::RVec<bool>;
-using RVecVecI = ROOT::VecOps::RVec<RVecI>;
+using RVecVecI = ROOT::VecOps::RVec<ROOT::VecOps::RVec<int>>;
 using RVecLV = ROOT::VecOps::RVec<LorentzVectorM>;
 using RVecSetInt = ROOT::VecOps::RVec<std::set<int>>;
 
@@ -115,6 +115,31 @@ inline std::pair<int, double> FindMatching(const LorentzVectorM& target_p4, cons
     }
   }
   return std::make_pair(current_idx, deltaR_min);
+}
+
+inline RVecI FindPFCandMatching(const LorentzVectorM& target_p4, const RVecLV& ref_p4, double deltaR_thr)
+{
+  int idx = -1;
+  RVecI target_idx; 
+  for(int refIdx = 0; refIdx < ref_p4.size(); ++refIdx){
+    const auto dR_targetRef = ROOT::Math::VectorUtil::DeltaR(target_p4, ref_p4.at(refIdx));
+    if(dR_targetRef < deltaR_thr){
+      target_idx.push_back(refIdx);
+    }
+  }
+  return target_idx;
+}
+
+inline RVecVecI FindAllMatching(const RVecLV& target_p4, const RVecLV& ref_p4, double deltaR_thr)
+{
+  RVecVecI targetIndices(target_p4.size());
+  for(size_t targetIdx = 0; targetIdx < target_p4.size(); ++targetIdx) {
+    const auto match = FindPFCandMatching(target_p4[targetIdx], ref_p4, deltaR_thr);
+    //std::cout << targetIdx << " / " <<match << std::endl;
+    targetIndices[targetIdx] = match;
+  }
+  //std::cout << targetIndices << std::endl;
+  return targetIndices;
 }
 
 inline RVecI FindBestMatching(const RVecLV& target_p4, const RVecLV& ref_p4, double deltaR_thr)
