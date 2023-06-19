@@ -135,10 +135,8 @@ inline RVecVecI FindAllMatching(const RVecLV& target_p4, const RVecLV& ref_p4, d
   RVecVecI targetIndices(target_p4.size());
   for(size_t targetIdx = 0; targetIdx < target_p4.size(); ++targetIdx) {
     const auto match = FindPFCandMatching(target_p4[targetIdx], ref_p4, deltaR_thr);
-    //std::cout << targetIdx << " / " <<match << std::endl;
     targetIndices[targetIdx] = match;
   }
-  //std::cout << targetIndices << std::endl;
   return targetIndices;
 }
 

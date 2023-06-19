@@ -1,4 +1,4 @@
-input_root: /eos/cms/store/group/phys_tau/kandroso/Run3_HLT/prod_v1
+input_root: /eos/cms/store/group/phys_tau/kandroso/Run3_HLT/prod_v3
 spectrum_root: /afs/cern.ch/user/z/zheli/Ntuple/output/spec
 n_batches: 1
 tree_name: Events

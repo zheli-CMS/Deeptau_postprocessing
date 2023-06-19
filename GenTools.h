@@ -74,9 +74,12 @@ inline ROOT::VecOps::RVec<ROOT::VecOps::RVec<float>> GetPFCandFloat(const RVecVe
                             const ROOT::VecOps::RVec<float>& PFCand_Var)
 {
   ROOT::VecOps::RVec<ROOT::VecOps::RVec<float>> PFCandFloat(L1Tau_target_idx.size());
+  //std::cout << L1Tau_target_idx << std::endl;
+  //std::cout << PFCand_Var << std::endl;
   for(size_t tau_idx = 0; tau_idx < L1Tau_target_idx.size(); ++tau_idx)
   {
     for(size_t PFCand_idx = 0; PFCand_idx < L1Tau_target_idx[tau_idx].size(); ++PFCand_idx){
+      // std::cout << PFCand_Var[L1Tau_target_idx[tau_idx][PFCand_idx]] << std::endl;
       PFCandFloat[tau_idx].push_back(PFCand_Var[L1Tau_target_idx[tau_idx][PFCand_idx]]);
     }
   }

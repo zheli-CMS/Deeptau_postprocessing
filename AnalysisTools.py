@@ -94,32 +94,32 @@ def ApplyCommonDefinitions(df, deltaR=0.4, isData=False):
          .Define('L1Tau_target_idx',f'FindAllMatching(L1Tau_p4, PFCand_p4, {deltaR})')\
          .Define('L1Tau_PFCand_pdgID','GetPFCandInt(L1Tau_target_idx,PFCand_pdgId)')\
          .Define('L1Tau_PFCand_charge','GetPFCandInt(L1Tau_target_idx,PFCand_charge)')\
-         .Define('L1Tau_PFCand_EcalEnergy','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_EcalEnergy)')
-        #  .Define('L1Tau_PFCand_HcalEnergy','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_HcalEnergy)')\
-        #  .Define('L1Tau_PFCand_eta','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_eta)')\
-        #  .Define('L1Tau_PFCand_mass','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_mass)')\
-        #  .Define('L1Tau_PFCand_phi','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_phi)')\
-        #  .Define('L1Tau_PFCand_pt','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_pt)')\
-        #  .Define('L1Tau_PFCand_rawEcalEnergy','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_rawEcalEnergy)')\
-        #  .Define('L1Tau_PFCand_rawHcalEnergy','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_rawHcalEnergy)')\
-        #  .Define('L1Tau_PFCand_trackChi2','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackChi2)')\
-        #  .Define('L1Tau_PFCand_trackDxy','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackDxy)')\
-        #  .Define('L1Tau_PFCand_trackDxyError','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackDxyError)')\
-        #  .Define('L1Tau_PFCand_trackDz','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackDz)')\
-        #  .Define('L1Tau_PFCand_trackDzError','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackDzError)')\
-        #  .Define('L1Tau_PFCand_trackEta','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackEta)')\
-        #  .Define('L1Tau_PFCand_trackEtaError','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackEtaError)')\
-        #  .Define('L1Tau_PFCand_trackHitsValidFraction','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackHitsValidFraction)')\
-        #  .Define('L1Tau_PFCand_trackNdof','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackNdof)')\
-        #  .Define('L1Tau_PFCand_trackNumberOfLostHits','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackNumberOfLostHits)')\
-        #  .Define('L1Tau_PFCand_trackNumberOfValidHits','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackNumberOfValidHits)')\
-        #  .Define('L1Tau_PFCand_trackPhi','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackPhi)')\
-        #  .Define('L1Tau_PFCand_trackPhiError','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackPhiError)')\
-        #  .Define('L1Tau_PFCand_trackPt','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackPt)')\
-        #  .Define('L1Tau_PFCand_trackPtError','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_trackPtError)')\
-        #  .Define('L1Tau_PFCand_vx','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_vx)')\
-        #  .Define('L1Tau_PFCand_vy','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_vy)')\
-        #  .Define('L1Tau_PFCand_vz','GetPFCandFloat(L1Tau_PFCandUniqueIdx,PFCand_vz)')
+         .Define('L1Tau_PFCand_EcalEnergy','GetPFCandFloat(L1Tau_target_idx,PFCand_EcalEnergy)')\
+         .Define('L1Tau_PFCand_HcalEnergy','GetPFCandFloat(L1Tau_target_idx,PFCand_HcalEnergy)')\
+         .Define('L1Tau_PFCand_eta','GetPFCandFloat(L1Tau_target_idx,PFCand_eta)')\
+         .Define('L1Tau_PFCand_mass','GetPFCandFloat(L1Tau_target_idx,PFCand_mass)')\
+         .Define('L1Tau_PFCand_phi','GetPFCandFloat(L1Tau_target_idx,PFCand_phi)')\
+         .Define('L1Tau_PFCand_pt','GetPFCandFloat(L1Tau_target_idx,PFCand_pt)')\
+         .Define('L1Tau_PFCand_rawEcalEnergy','GetPFCandFloat(L1Tau_target_idx,PFCand_rawEcalEnergy)')\
+         .Define('L1Tau_PFCand_rawHcalEnergy','GetPFCandFloat(L1Tau_target_idx,PFCand_rawHcalEnergy)')\
+         .Define('L1Tau_PFCand_trackChi2','GetPFCandFloat(L1Tau_target_idx,PFCand_trackChi2)')\
+         .Define('L1Tau_PFCand_trackDxy','GetPFCandFloat(L1Tau_target_idx,PFCand_trackDxy)')\
+         .Define('L1Tau_PFCand_trackDxyError','GetPFCandFloat(L1Tau_target_idx,PFCand_trackDxyError)')\
+         .Define('L1Tau_PFCand_trackDz','GetPFCandFloat(L1Tau_target_idx,PFCand_trackDz)')\
+         .Define('L1Tau_PFCand_trackDzError','GetPFCandFloat(L1Tau_target_idx,PFCand_trackDzError)')\
+         .Define('L1Tau_PFCand_trackEta','GetPFCandFloat(L1Tau_target_idx,PFCand_trackEta)')\
+         .Define('L1Tau_PFCand_trackEtaError','GetPFCandFloat(L1Tau_target_idx,PFCand_trackEtaError)')\
+         .Define('L1Tau_PFCand_trackHitsValidFraction','GetPFCandFloat(L1Tau_target_idx,PFCand_trackHitsValidFraction)')\
+         .Define('L1Tau_PFCand_trackNdof','GetPFCandFloat(L1Tau_target_idx,PFCand_trackNdof)')\
+         .Define('L1Tau_PFCand_trackNumberOfLostHits','GetPFCandFloat(L1Tau_target_idx,PFCand_trackNumberOfLostHits)')\
+         .Define('L1Tau_PFCand_trackNumberOfValidHits','GetPFCandFloat(L1Tau_target_idx,PFCand_trackNumberOfValidHits)')\
+         .Define('L1Tau_PFCand_trackPhi','GetPFCandFloat(L1Tau_target_idx,PFCand_trackPhi)')\
+         .Define('L1Tau_PFCand_trackPhiError','GetPFCandFloat(L1Tau_target_idx,PFCand_trackPhiError)')\
+         .Define('L1Tau_PFCand_trackPt','GetPFCandFloat(L1Tau_target_idx,PFCand_trackPt)')\
+         .Define('L1Tau_PFCand_trackPtError','GetPFCandFloat(L1Tau_target_idx,PFCand_trackPtError)')\
+         .Define('L1Tau_PFCand_vx','GetPFCandFloat(L1Tau_target_idx,PFCand_vx)')\
+         .Define('L1Tau_PFCand_vy','GetPFCandFloat(L1Tau_target_idx,PFCand_vy)')\
+         .Define('L1Tau_PFCand_vz','GetPFCandFloat(L1Tau_target_idx,PFCand_vz)')
   return df
         #  .Define('L1Tau_PFCand_longLived','GetPFCandBool(L1Tau_PFCandUniqueIdx,PFCand_longLived)')\
         #  .Define('L1Tau_PFCand_trackIsValid','GetPFCandBool(L1Tau_PFCandUniqueIdx,PFCand_trackIsValid)')
